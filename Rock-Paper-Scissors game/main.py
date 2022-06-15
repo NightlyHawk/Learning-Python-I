@@ -1,34 +1,36 @@
 import random
-import os
-import sys
 
-def game():
 
- moves = ['R','P','S']
- Player = input ('your turn. \n')
-# def random_word(words):
-#     return random.choice(moves)
 
- Computer = input(random.choice(moves))
+moves = ["rock","paper","scissors"]
+Player = input ('your turn. \n')
 
- if (Player == Computer):
+
+Computer = print(random.choice(moves))
+while True:
+   if Player == Computer:
     print('draw')    
- if (Player == moves[0].lower() and Computer.lower() == moves[1].lower() ):
-    print('Computer wins \n')
- if (Player == moves[0].lower() and Computer.lower() == moves[2].lower() ):
-    print('You win \n')
- if (Player == moves[1].lower() and Computer.lower() == moves[0].lower() ):
-    print('You win \n')
- if (Player == moves[1].lower() and Computer.lower() == moves[2].lower() ):
-    print('Computer wins \n')
- if (Player == moves[2].lower() and Computer.lower() == moves[0].lower() ):
-    print('Computer wins \n')
- if (Player == moves[2].lower() and Computer.lower() == moves[1].lower() ):
-    print('You win \n')
- if (Player != moves[0] or Player != moves[1] or Player != moves[2]):
-    print('unavailable move \n') 
-    while True: 
-        game()
-    # os.execl(sys.executable, sys.executable, *sys.argv)
+   elif Player == "rock":
+         if Computer == "paper":
+           print('Computer wins \n')
+         else:
+           print('You win \n')
+   elif Player == "paper":
+         if Computer == "rock":
+           print('You win \n')
+         else:
+           print('Computer wins \n')
+   elif Player == "scissors":
+         if Computer == "rock":
+           print('Computer wins \n')
+         else: 
+           print('You win \n')
 
-game()
+   else:
+       print('unavailable move \n') 
+   
+        
+  
+   play_again = input("Play again? (y/n): ")
+   if play_again.lower() != "y":
+        break
